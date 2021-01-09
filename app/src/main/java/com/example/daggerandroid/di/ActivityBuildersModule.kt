@@ -9,13 +9,4 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuildersModule {
     @ContributesAndroidInjector
     abstract fun contributeAuthActivity() : AuthActivity
-
-    @Module
-    companion object{
-        @JvmStatic
-        @Provides
-        fun provideString() : String{
-            return "This is a test String"
-        }
-    }
 }

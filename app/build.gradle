@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -40,8 +41,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -50,7 +51,7 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
 
     // Dagger
-    def dagger_version = "2.22"
+    def dagger_version = "2.27"
 
     // Dagger2 core
     implementation "com.google.dagger:dagger:$dagger_version"
@@ -62,16 +63,16 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     // Glide
-    def glideVersion = "4.9.0"
+    def glideVersion = "4.11.0"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     // ViewModel and LiveData
-    def lifecycle_version = '2.1.0-alpha03'
+    def lifecycle_version = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     // Retrofit
-    def retrofitVersion = "2.5.0"
+    def retrofitVersion = "2.6.2"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
@@ -84,7 +85,7 @@ dependencies {
     implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
 
     // RxJava
-    def rxjava_version = '2.1.1'
+    def rxjava_version = '2.1.9'
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
 
     // Rx-Retrofit Call Adapter
