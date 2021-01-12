@@ -9,16 +9,24 @@ import android.widget.Toast
 import com.example.daggerandroid.BaseActivity
 import com.example.daggerandroid.R
 import com.example.daggerandroid.extentions.showToast
+import com.example.daggerandroid.ui.main.profile.ProfileFragment
 
 class MainActivity : BaseActivity() {
     companion object{
         private const val TAG = "MainActivity"
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate: Entered Main Activity")
+        testFragment()
+    }
+
+    private fun testFragment(){
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.mainContainer, ProfileFragment())
+                .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
