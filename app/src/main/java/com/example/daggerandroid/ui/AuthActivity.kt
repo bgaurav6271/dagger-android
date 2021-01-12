@@ -1,5 +1,6 @@
 package com.example.daggerandroid.ui
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.example.daggerandroid.extentions.showToast
 import com.example.daggerandroid.invisisble
 import com.example.daggerandroid.ui.auth.AuthResource
 import com.example.daggerandroid.ui.auth.AuthViewModel
+import com.example.daggerandroid.ui.main.MainActivity
 import com.example.daggerandroid.viewmodels.ViewModelProviderFactory
 import com.example.daggerandroid.visible
 import dagger.android.support.DaggerAppCompatActivity
@@ -49,10 +51,11 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener {
     }
 
     private fun subscribeObservers() {
-       viewModel.observeUser().observe(this){ authResource ->
+       viewModel.observeAuthState().observe(this){ authResource ->
            when(authResource){
                is AuthResource.Authenticated -> {
                    showProgressBar(false)
+                   onLoginSuccess()
                    Log.d(TAG, "subscribeObservers: Login Success ${authResource.data?.email}")
                }
                is AuthResource.Error -> {
@@ -86,5 +89,11 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener {
             return
         }
         viewModel.authenticateUserWithId(user_id_input.text.toString())
+    }
+
+    private fun onLoginSuccess(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

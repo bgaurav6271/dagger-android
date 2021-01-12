@@ -1,5 +1,8 @@
 package com.example.daggerandroid.ui.auth
 
+/**
+ * Exposing network status using a Resource class that encapsulates both the data and its state
+ */
 sealed class AuthResource<T> (
     val data : T? = null,
     val message : String? = null
