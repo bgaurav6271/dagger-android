@@ -16,15 +16,19 @@ import retrofit2.Retrofit
 class MainModule {
 
     companion object{
+        @MainScope
         @Provides
         fun provideMainApi(retrofit: Retrofit): MainApi = retrofit.create(MainApi::class.java)
 
+        @MainScope
         @Provides
         fun provideAdapter() : PostsRecyclerAdapter = PostsRecyclerAdapter()
 
+        @MainScope
         @Provides
         fun provideLayoutManager(activity: MainActivity) : LinearLayoutManager = LinearLayoutManager(activity)
 
+        @MainScope
         @Provides
         fun provideItemDecorator() : VerticalSpacingItemDecoration = VerticalSpacingItemDecoration(15)
     }
