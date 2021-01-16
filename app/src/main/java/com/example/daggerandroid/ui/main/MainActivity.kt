@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.daggerandroid.BaseActivity
 import com.example.daggerandroid.R
 import com.example.daggerandroid.extentions.showToast
+import com.example.daggerandroid.ui.main.posts.PostsFragment
 import com.example.daggerandroid.ui.main.profile.ProfileFragment
 
 class MainActivity : BaseActivity() {
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity() {
 
     private fun testFragment(){
         supportFragmentManager.beginTransaction()
-                .replace(R.id.mainContainer, ProfileFragment())
+                .replace(R.id.mainContainer, PostsFragment())
                 .commit()
     }
 
